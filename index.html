@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple TODO Site</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="heading">SIMPLE TO-DO APPS</h1>
+    </div>
+    <div class="body">
+      <div class="box-container">
+        <div class="taskArea">
+          <div class="taskList">
+            <ul class="groupList" id="groupList">
+            </ul>
+          </div>
+        </div>
+        <div class="buttonRows">
+          <button
+            class="buttonColumn"
+            id="createButton"
+            onclick="openModal()"
+            onmouseenter="mouseHoverEfect(this.id)"
+            onmouseleave="resetMouseHover(this.id)"
+          >
+            <p>Create Task</p>
+          </button>
+          <button
+            class="buttonColumn"
+            id="clearButton"
+            onmouseenter="mouseHoverEfect(this.id)"
+            onmouseleave="resetMouseHover(this.id)"
+          >
+            <p>Clear All</p>
+          </button>
+        </div>
+      </div>
+      <div class="modalCreateBackground" id="modalCreateBackground">
+        <div class="modalCreate">
+          <div class="modalBar">
+            <p class="modalBarTitle">CREATE NEW TASK</p>
+            <button
+              class="modalBarExit"
+              id="modalBarExit"
+              onclick="closeModal()"
+            >
+              X
+            </button>
+          </div>
+          <div class="modalForm">
+            <form class="formArea" action="" method="">
+              <input
+                class="formTextInput"
+                type="text"
+                name=""
+                id="formText"
+                value=""
+                onkeydown="pressEnter(event, formText.value)"
+              />
+              <input
+                class="formButton"
+                id="formButton"
+                type="button"
+                onclick="submitNewTask(formText.value)"
+                value="CREATE"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
