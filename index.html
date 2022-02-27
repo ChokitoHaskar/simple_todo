@@ -15,8 +15,7 @@
       <div class="box-container">
         <div class="taskArea">
           <div class="taskList">
-            <ul class="groupList" id="groupList">
-            </ul>
+            <ul class="groupList" id="groupList"></ul>
           </div>
         </div>
         <div class="buttonRows">
@@ -32,6 +31,7 @@
           <button
             class="buttonColumn"
             id="clearButton"
+            onclick="clearAllTask()"
             onmouseenter="mouseHoverEfect(this.id)"
             onmouseleave="resetMouseHover(this.id)"
           >
@@ -52,14 +52,13 @@
             </button>
           </div>
           <div class="modalForm">
-            <form class="formArea" action="" method="">
+            <div class="formArea">
               <input
                 class="formTextInput"
                 type="text"
                 name=""
                 id="formText"
                 value=""
-                onkeydown="pressEnter(event, formText.value)"
               />
               <input
                 class="formButton"
@@ -68,7 +67,7 @@
                 onclick="submitNewTask(formText.value)"
                 value="CREATE"
               />
-            </form>
+            </div>
           </div>
         </div>
       </div>

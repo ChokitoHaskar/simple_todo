@@ -48,13 +48,13 @@ html {
   background-color: rgb(224, 224, 224);
   margin-right: 20px;
   border: 0.1rem solid rgb(121, 121, 121);
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0.6rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 1rem;
 }
 .listDetail {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 24px;
+  font-size: larger;
 }
 .buttonRows {
   display: flex;
@@ -174,4 +174,40 @@ p.modalBarTitle {
   font-size: 1.5rem;
   font-weight: bold;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Desktops Screen */
+@media only screen and (max-width: 1200px) {
+  .box-container {
+    max-width: 90%;
+  }
+}
+
+/* Laptop Screen */
+@media only screen and (max-width: 1024px) {
+  .box-container {
+    max-width: 90%;
+  }
+  .modalCreate {
+    max-width: 45rem;
+  }
+  .formTextInput {
+    width: 35rem;
+  }
+}
+
+/* Mobile Screen */
+@media only screen and (orientation: portrait) {
+  h1.heading {
+    font-size: 2rem;
+  }
+  .box-container {
+    max-width: 90%;
+  }
+  .modalCreate {
+    max-width: 35rem;
+  }
+  .formTextInput {
+    width: 25rem;
+  }
 }

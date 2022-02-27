@@ -1,35 +1,45 @@
 let modalCard = document.getElementById("modalCreateBackground");
 let taskValue = document.getElementById("formText");
 let groupList = document.getElementById("groupList");
+let list = document.getElementsByClassName("list")
+
 let listNumber = 1;
 
-function addNewTask() {}
-
 // Core Function //
-function submitNewTask(taskCreated) {
-  let list = document.createElement("li");
+async function submitNewTask(taskCreated) {
+  let createList = document.createElement("li");
   let checkButton = document.createElement("button");
   let listDetail = document.createElement("p");
 
-  list.classList.add("list");
+  createList.classList.add("list");
+
   checkButton.classList.add("checkButton");
   checkButton.setAttribute("id", "checkButton" + listNumber);
   checkButton.setAttribute("onclick", "checkedTask(this.id)");
+
   listDetail.classList.add("listDetail");
-  listDetail.textContent = taskCreated;
 
-  list.appendChild(checkButton);
-  list.appendChild(listDetail);
+  if (taskCreated) {
+    let currentValue = new Promise(function (resolve) {
+      setTimeout(() => {
+        resolve(taskCreated);
+      }, 1000);
+    });
+    listDetail.textContent = await currentValue;
+    createList.appendChild(checkButton);
+    createList.appendChild(listDetail);
+    groupList.appendChild(createList);
 
-  groupList.appendChild(list);
-  
-  listNumber += 1;
+    listNumber += 1;
 
-  taskCreated = null
-  closeModal();
+    taskValue.value = "";
+    closeModal();
+  }
 }
 
-function createNewTask() {}
+function clearAllTask() {
+  alert("Cleared");
+}
 
 // Function for controlling Style and animamtion //
 function checkedTask(id) {
@@ -55,9 +65,4 @@ function resetMouseHover(x) {
   x == "createButton"
     ? (document.getElementById(x).style.backgroundColor = "#f8d2ff")
     : (document.getElementById(x).style.backgroundColor = "#fcebff");
-}
-
-function pressEnter(event, taskCreated) {
-  let unicode = event.which;
-  unicode == 13 ? submitNewTask(taskCreated) : null;
 }
